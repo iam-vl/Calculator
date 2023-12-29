@@ -104,7 +104,10 @@ class Equation {
                 result = leftV + rightV;
                 break;
             case "s":
-                result = leftV - rightV;
+                if ((this.isRoman) && (leftV - rightV < 1))
+                    throw new IOException("Отрицательный или нулевой результат с римскими числами.");
+                else
+                    result = leftV - rightV;
                 break;
             case "m":
                 result = leftV * rightV;
